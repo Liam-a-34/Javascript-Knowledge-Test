@@ -1,0 +1,139 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    margin: 0;
+}
+
+header ul {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    margin: 5px 10px;
+}
+
+ul {
+    list-style: none;
+}
+
+
+.cards {
+    position: relative;
+    height: 500px;
+    width: 50%;
+}
+
+.question {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+h2 {
+    padding: 10px 0;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+.question h3 {
+    margin: 10px;
+    font-size: 150%;
+    width: 90%;
+    padding-left: 20px;
+    font-family: sans-serif;
+    font-style: italic;
+    color: grey;
+    border-top: 2px solid gray
+}
+
+button {
+    margin: 1px;
+    padding: 3px 5px;
+    height: 25px;
+    width: 150px;
+    text-align: left;
+    border-radius: 8px;
+    border: 2px solid rgb(53, 99, 216);
+    color: white;
+    background-color: rgb(0, 32, 101);
+}
+
+button:hover {
+    background-color: rgb(4, 49, 146);
+}
+
+#final {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+#final button {
+    width: 75px;
+    text-align: center;
+}
+
+#Q1 {
+    display:none;
+}
+
+#Q2 {
+    display:none;
+}
+
+#Q3 {
+    display:none;
+}
+
+#Q4 {
+    display:none;
+}
+
+#Q5 {
+    display:none;
+}
+
+#final {
+    display:none;
+}
+
+#final p {
+    margin: 20px 0;
+    font-family: sans-serif;
+    font-size: 110%    
+}
+
+#final label {
+    font-weight: bold;
+    font-style: italic;
+}
+
+#highscores {
+    /* display:none; */
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+#highscores li {
+    font-family: sans-serif;
+    padding: 3px 0 0 10px;
+    background-color: rgba(0, 32, 101, 0.52);
+}
+
+#highscores button {
+    width: 125px;
+    margin: 15px;
+    text-align: center;
+}
+
+
