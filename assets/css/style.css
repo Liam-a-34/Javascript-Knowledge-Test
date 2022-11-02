@@ -21,14 +21,31 @@ ul {
 
 .cards {
     position: relative;
-    height: 500px;
-    width: 50%;
 }
 
-.question {
+#start {
     display: flex;
     flex-direction: column;
     position: absolute;
+    align-items: center;
+    text-align: center;
+    top: 40%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+#start button {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.question {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 400px;
     top: 40%;
     left: 50%;
     -ms-transform: translate(-50%, -50%);
@@ -40,7 +57,7 @@ h2 {
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
-.question h3 {
+h3 {
     margin: 10px;
     font-size: 150%;
     width: 90%;
@@ -54,8 +71,9 @@ h2 {
 button {
     margin: 1px;
     padding: 3px 5px;
-    height: 25px;
-    width: 150px;
+    height: 50px;
+    width: 200px;
+    font-size: 125%;
     text-align: left;
     border-radius: 8px;
     border: 2px solid rgb(53, 99, 216);
@@ -75,8 +93,11 @@ button:hover {
     transform: translate(-50%, -50%);
 }
 
+
 #final button {
-    width: 75px;
+    width: 100px;
+    height: 25px;
+    font-size: 100%;
     text-align: center;
 }
 
@@ -116,7 +137,7 @@ button:hover {
 }
 
 #highscores {
-    /* display:none; */
+    display:none;
     position: absolute;
     top: 40%;
     left: 50%;
@@ -131,7 +152,9 @@ button:hover {
 }
 
 #highscores button {
-    width: 125px;
+    width: 150px;
+    height: 35px;
+    font-size: 100%;
     margin: 15px;
     text-align: center;
 }

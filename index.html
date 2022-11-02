@@ -13,72 +13,81 @@
             <li>
                 <a data-highscores = "">View Highscores</a>
             </li>
-            <li>
+            <li class="timer">
                 Time: 75
             </li>
         </ul>
     </header>
     <section id="cards">
+    
+    <div id="start">
+        <h2>Javascript coding quiz</h2>
+        <p>Try to answer the coding based questions within the time limit. Correct answers will award you with five points. Incorrect answers will decrease your time by ten seconds. Good luck!</p>
+        <button class="begin">Start Quiz</button>
+    </div>
+
     <div id="Q1" class="question">
         <h2>Which of these is not an actual Javascript object?</h2>
         <button>1. Math.max</button>
         <button>2. Math.floor</button>
-        <button>3. Math.pos</button>
+        <button class="correct1">3. Math.pos</button>
         <button>4. Math.random</button>
-        <h3></h3>
+        <h3 id="feedback1"></h3>
     </div>
+    </section>
 
     <div id="Q2" class="question">
         <h2>Which is not a way of concatenating two arrays?</h2>
-        <button>1. merge()</button>
+        <button class="correct2">1. merge()</button>
         <button>2. push()</button>
         <button>3. concat()</button>
-        <button>4.merge = [...arr...arr2]</button>
-        <h3></h3>
+        <button>4. merge[]</button>
+        <h3 id="feedback2"></h3>
     </div>
+    </section>
 
     <div id="Q3" class="question">
         <h2>What is a set of text in quotation marks called?</h2>
         <button>1. Variable</button>
-        <button>2. String</button>
+        <button class="correct3">2. String</button>
         <button>3. Content</button>
         <button>4. Text</button>
-        <h3></h3>
+        <h3 id="feedback3"></h3>
     </div>
 
     <div id="Q4" class="question">
         <h2>The conditions of an if statement are enclosed in ____.</h2>
-        <button>1. Parenthesis</button>
+        <button class="correct4">1. Parenthesis</button>
         <button>2. Curly Brackets</button>
         <button>3. Quotation Marks</button>
         <button>4. Brackets</button>
-        <h3></h3>
+        <h3 id="feedback4"></h3>
     </div>
 
     <div id="Q5" class="question">
-        <h2>Which of these is a way of displaying an interactive pop-up window, to the user?</h2>
+        <h2>Which of these is not a way of displaying an interactive pop-up window, to the user?</h2>
         <button>1. window.prompt()</button>
         <button>2. window.alert()</button>
         <button>3. window.confirm()</button>
-        <button>4. window.input()</button>
-        <h3></h3>
+        <button class="correct5">4. window.input()</button>
+        <h3 id="feedback5"></h3>
     </div>
 
     <div id="final">
         <h2>All done!</h2>
-        <p>Your final score is</p>
+        <p id="final_score">Your final score is</p>
         <label for="initials">Enter Initials:</label>
-        <input type="text" id="initials" name="user-initials">
-        <button type="submit">Submit</button>
+        <input type="text" id="initials" name="initials" placeholder="Initials">
+        <button id="submit">Submit</button>
+        <h3></h3>
     </div>
 
     <div id="highscores">
-        <h2>Highscores</h2>
-        <ul>
-            <li>LA</li>
+        <h2>High scores</h2>
+        <ul id="scores">
         </ul>
-        <button>Go back</button>
-        <button>Clear Highscores</button>
+        <button id="go_back">Go back</button>
+        <button id="clear">Clear High scores</button>
     </div>
     </section>
     
