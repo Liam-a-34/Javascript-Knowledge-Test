@@ -1,5 +1,5 @@
 var score = 0
-var time = 75
+var time = 50
 var timer = document.querySelector(".timer")
 var begin = document.querySelector(".begin")
 var start = document.querySelector("#start")
@@ -14,93 +14,113 @@ var final_score_count = document.querySelector("#final_score")
 var leaderboard = document.querySelector("#scores")
 var back = document.querySelector("#go_back")
 var clear_scores = document.querySelector("#clear")
-
+var inits = document.querySelector("#initials")
 
 
 function countdown_start() {
-    time = 75;
-    var countdown = setInterval(function(){
-        timer.textContent= "Time: " + time;
+    time = 50;
+    var gameTimer = setInterval(function(){
         time--;
-    }, 1000);
+        timer.textContent= "Time: " + time;
 
-    score = 0;
 
-    start_test();
+    if (time === 0){
+        clearInterval(gameTimer);
+        final_score();
+        
+    }
+}, 1000);
+start_test();
 
-    q5.addEventListener("click", function(event){
-        clearInterval(countdown);
+    q5.addEventListener("click", function(){
+        clearInterval(gameTimer);
 
     })
 }
 
+function new_score_item(){
+debugger;
+    var user_init = inits.value;
+    var user_score = score;
+    var user_info = user_init + " - " + user_score
 
 
-function go_to_scores() {
+        var new_item = document.createElement("li");
+
+        leaderboard.appendChild(new_item);
+
+        new_item.textContent = user_info;
+
+        console.log(leaderboard);
+
+        return;
+}
+
+
+function go_to_scores(){
 
     final.setAttribute("style", "display: none;")
     highscores.setAttribute("style", "display: block;")
 
-    var lis = document.createElement("li");
 
-    leaderboard.appendChild(lis);
-
-    leaderboard.children[i].textContent = "";
-
+}
+  
     back.addEventListener("click", function(event){
         event.preventDefault();
 
-        time = 75;
+        inits.value = "";
+
+        score = 0;
 
         highscores.setAttribute("style", "display: none");
     
         start.setAttribute("style", "display: flex;");
+
     })
 
     clear_scores.addEventListener("click", function(event){
         event.preventDefault();
 
-        leaderboard.removeChild(lis);
+        leaderboard.removeChild(new_slot);
         
     })
 
-}
 
-function final_score () {
+function final_score (event) {
 
+    console.log(score)
+
+    q1.setAttribute("style", "display: none");
+    q2.setAttribute("style", "display: none");
+    q3.setAttribute("style", "display: none");
+    q4.setAttribute("style", "display: none");
     q5.setAttribute("style", "display: none;");
 
     final.setAttribute("style", "display: block;");
 
     final_score_count.textContent = ("Your final score is " + score + ".");
-    setTimeout(() => {final.children[5].textContent = ""}, 1500);
 
+    setTimeout(() => {final.children[5].textContent = ""}, 1500);
+}
     submit.addEventListener("click", function(event){
         event.preventDefault();
-
-        var scores = []
-        var user_score = (document.querySelector("#initials").value + ": " + score);
-        localStorage.setItem("all_scores", scores)
-
-        scores.push(user_score);
-
-        //console.log(scores);
-    
-        console.log(user_score);
-
-        //console.log(localStorage.getItem("all_scores"))
-
+        
+        new_score_item();
         go_to_scores();
+        return;
 
     });
 
-}
+
 
 function fifth_q() {
     q4.setAttribute("style", "display: none;")
 
+    console.log(score)
+
     q5.setAttribute("style", "display: flex;");
     setTimeout(() => {q5.children[5].textContent = ""}, 1500);
+}
     q5.addEventListener("click", function(event){
         event.stopPropagation();
         var answer5 = event.target;
@@ -109,20 +129,25 @@ function fifth_q() {
             score += 5;
             final.children[5].textContent = "Correct!"
             final_score();
+            return;
         } else {
             time -= 10;
             final.children[5].textContent = "Incorrect.";
             final_score();
+            return;
         }
     });   
-}
+
 
 function fourth_q() {
     q3.setAttribute("style", "display: none;")
 
+    console.log(score)
+
     q4.setAttribute("style", "display: flex;");
     setTimeout(() => {q4.children[5].textContent = ""}, 1500);
-    q4.addEventListener("click", function(event){ 
+}
+    q4.addEventListener("click", function(event){
         event.stopPropagation();
         var answer4 = event.target;
     
@@ -130,19 +155,24 @@ function fourth_q() {
             score += 5;
             q5.children[5].textContent = "Correct!"
             fifth_q();
+            return;
         } else {
             time -= 10;
             q5.children[5].textContent = "Incorrect."
             fifth_q();
+            return;
         }
     });   
-}
+
 
 function third_q() {
     q2.setAttribute("style", "display: none;")
 
+    console.log(score)
+
     q3.setAttribute("style", "display: flex;");
     setTimeout(() => {q3.children[5].textContent = ""}, 1500);
+}
     q3.addEventListener("click", function(event){
         event.stopPropagation();
         var answer3 = event.target;
@@ -151,58 +181,67 @@ function third_q() {
             score += 5;
             q4.children[5].textContent = "Correct!"
             fourth_q();
+            return;
         } else {
             time -= 10;
             q4.children[5].textContent = "Incorrect."
             fourth_q();
+            return;
         }
     });   
-}
+
 
 function second_q() {
     q1.setAttribute("style", "display: none;")
 
+    console.log(score)
+
     q2.setAttribute("style", "display: flex;");
     setTimeout(() => {q2.children[5].textContent = ""}, 1000);
+}
     q2.addEventListener("click", function(event){
         event.stopPropagation();
         var answer2 = event.target;
-    
         if (answer2.matches(".correct2")) {
             score += 5;
             q3.children[5].textContent = "Correct!";
             third_q();
+            return;
         } else {
             time -= 10;
             q3.children[5].textContent = "Incorrect."
             third_q();
+            return;
         }
     });   
-}
+
 
 function start_test() {
+
 
 start.setAttribute("style", "display: none;")
 
 q1.setAttribute("style", "display: flex;");
 
-
+}
 q1.addEventListener("click", function(event) {
-    event.stopPropagation()
+    event.stopPropagation();
     var answer1 = event.target;
 
     if (answer1.matches(".correct1")) {
         score += 5; 
         q2.children[5].textContent = "Correct!"
         second_q();
+        return;
     } else {
         time -= 10;
         q2.children[5].textContent = "Incorrect.";
         second_q();
+        return;
     }
 });
 
-}
+
 
 
 begin.addEventListener("click", countdown_start)
