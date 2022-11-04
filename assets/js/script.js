@@ -39,7 +39,7 @@ start_test();
 }
 
 function new_score_item(){
-debugger;
+
     var user_init = inits.value;
     var user_score = score;
     var user_info = user_init + " - " + user_score
@@ -47,14 +47,23 @@ debugger;
 
         var new_item = document.createElement("li");
 
-        leaderboard.appendChild(new_item);
+        leaderboard.append(new_item);
 
         new_item.textContent = user_info;
 
         console.log(leaderboard);
 
-        return;
+
+clear_scores.addEventListener("click", function(event){
+    event.preventDefault();
+
+    leaderboard.remove(new_item);
+    console.log(new_item);
+    
+})
 }
+
+
 
 
 function go_to_scores(){
@@ -78,12 +87,6 @@ function go_to_scores(){
 
     })
 
-    clear_scores.addEventListener("click", function(event){
-        event.preventDefault();
-
-        leaderboard.removeChild(new_slot);
-        
-    })
 
 
 function final_score (event) {
