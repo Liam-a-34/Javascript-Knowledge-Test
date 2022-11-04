@@ -16,22 +16,23 @@ var back = document.querySelector("#go_back")
 var clear_scores = document.querySelector("#clear")
 var inits = document.querySelector("#initials")
 
-
+//Test timer
 function countdown_start() {
     time = 50;
     var gameTimer = setInterval(function(){
         time--;
         timer.textContent= "Time: " + time;
 
-
+//If time hits 0, it will take you to the final page
     if (time === 0){
         clearInterval(gameTimer);
         final_score();
         
     }
 }, 1000);
+//Starts test
 start_test();
-
+//If the final question is answered, this will stop the timer
     q5.addEventListener("click", function(){
         clearInterval(gameTimer);
 
@@ -39,7 +40,7 @@ start_test();
 }
 
 function new_score_item(){
-
+//Creates and appends the user's info in to the leaderboard
     var user_init = inits.value;
     var user_score = score;
     var user_info = user_init + " - " + user_score
@@ -56,7 +57,7 @@ function new_score_item(){
 
 clear_scores.addEventListener("click", function(event){
     event.preventDefault();
-
+//Clears the scores
     leaderboard.remove(new_item);
     console.log(new_item);
     
@@ -65,7 +66,7 @@ clear_scores.addEventListener("click", function(event){
 
 
 
-
+//Displays the highscores card
 function go_to_scores(){
 
     final.setAttribute("style", "display: none;")
@@ -73,7 +74,7 @@ function go_to_scores(){
 
 
 }
-  
+  //If back button is pressed, it will take you back to the beginning screen
     back.addEventListener("click", function(event){
         event.preventDefault();
 
@@ -88,7 +89,7 @@ function go_to_scores(){
     })
 
 
-
+//Brings you to the page that displays your score and gives the user the ability to input their initials
 function final_score (event) {
 
     console.log(score)
@@ -105,6 +106,7 @@ function final_score (event) {
 
     setTimeout(() => {final.children[5].textContent = ""}, 1500);
 }
+//If the submit button is clicked, it will take you to the highscores and submit the user's information
     submit.addEventListener("click", function(event){
         event.preventDefault();
         
@@ -115,7 +117,7 @@ function final_score (event) {
     });
 
 
-
+//Will display the fifth question
 function fifth_q() {
     q4.setAttribute("style", "display: none;")
 
@@ -124,6 +126,7 @@ function fifth_q() {
     q5.setAttribute("style", "display: flex;");
     setTimeout(() => {q5.children[5].textContent = ""}, 1500);
 }
+//If the correct answer is clicked it will add 5 to the score, if not it will subtract 10 from the time
     q5.addEventListener("click", function(event){
         event.stopPropagation();
         var answer5 = event.target;
@@ -141,7 +144,7 @@ function fifth_q() {
         }
     });   
 
-
+//Will display the fourth question
 function fourth_q() {
     q3.setAttribute("style", "display: none;")
 
@@ -150,6 +153,7 @@ function fourth_q() {
     q4.setAttribute("style", "display: flex;");
     setTimeout(() => {q4.children[5].textContent = ""}, 1500);
 }
+//If the correct answer is clicked it will add 5 to the score, if not it will subtract 10 from the time
     q4.addEventListener("click", function(event){
         event.stopPropagation();
         var answer4 = event.target;
@@ -167,7 +171,7 @@ function fourth_q() {
         }
     });   
 
-
+//Will display the third question
 function third_q() {
     q2.setAttribute("style", "display: none;")
 
@@ -176,6 +180,7 @@ function third_q() {
     q3.setAttribute("style", "display: flex;");
     setTimeout(() => {q3.children[5].textContent = ""}, 1500);
 }
+//If the correct answer is clicked it will add 5 to the score, if not it will subtract 10 from the time
     q3.addEventListener("click", function(event){
         event.stopPropagation();
         var answer3 = event.target;
@@ -193,7 +198,7 @@ function third_q() {
         }
     });   
 
-
+//Will display the second question
 function second_q() {
     q1.setAttribute("style", "display: none;")
 
@@ -202,6 +207,7 @@ function second_q() {
     q2.setAttribute("style", "display: flex;");
     setTimeout(() => {q2.children[5].textContent = ""}, 1000);
 }
+//If the correct answer is clicked it will add 5 to the score, if not it will subtract 10 from the time
     q2.addEventListener("click", function(event){
         event.stopPropagation();
         var answer2 = event.target;
@@ -218,7 +224,7 @@ function second_q() {
         }
     });   
 
-
+//Will display the first question
 function start_test() {
 
 
@@ -227,6 +233,7 @@ start.setAttribute("style", "display: none;")
 q1.setAttribute("style", "display: flex;");
 
 }
+//If the correct answer is clicked it will add 5 to the score, if not it will subtract 10 from the time
 q1.addEventListener("click", function(event) {
     event.stopPropagation();
     var answer1 = event.target;
@@ -246,5 +253,5 @@ q1.addEventListener("click", function(event) {
 
 
 
-
+//When the Start Quiz button is clicked, it will start the timer and quiz
 begin.addEventListener("click", countdown_start)

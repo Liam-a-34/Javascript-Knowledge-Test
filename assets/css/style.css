@@ -13,16 +13,16 @@ header ul {
     text-align: center;
     font-size: 150%;
 }
-
+/* Removes bullet points from list items */
 ul {
     list-style: none;
 }
 
-
+/* Positioning for cards */
 .cards {
     position: relative;
 }
-
+/* Start page styling */
 #start {
     display: flex;
     flex-direction: column;
@@ -34,12 +34,12 @@ ul {
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
-
+/* Start Quiz button styling */
 #start button {
     margin-top: 20px;
     text-align: center;
 }
-
+/* Styling for all the question cards */
 .question {
     position: absolute;
     display: flex;
@@ -51,12 +51,12 @@ ul {
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
-
+/* Styling for all question headers */
 h2 {
     padding: 10px 0;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
-
+/* Styling for Correct/Incorrect pop up */
 h3 {
     margin: 10px;
     font-size: 150%;
@@ -67,7 +67,7 @@ h3 {
     color: grey;
     border-top: 2px solid gray
 }
-
+/* Question button styling */
 button {
     margin: 1px;
     padding: 3px 5px;
@@ -80,11 +80,11 @@ button {
     color: white;
     background-color: rgb(0, 32, 101);
 }
-
+/* Will change the button color when you hover over it with your mouse */
 button:hover {
     background-color: rgb(4, 49, 146);
 }
-
+/* Final page styling */
 #final {
     position: absolute;
     top: 40%;
@@ -93,19 +93,19 @@ button:hover {
     transform: translate(-50%, -50%);
 }
 
-
+/* Final button styling */
 #final button {
     width: 100px;
     height: 25px;
     font-size: 100%;
     text-align: center;
 }
-
+/* Styling for scoreboard items */
 #scores {
     color: white;
     font-size: 120%;
 }
-
+/* Displays for all the questions so they can be toggled */
 #Q1 {
     display:none;
 }
@@ -129,18 +129,18 @@ button:hover {
 #final {
     display:none;
 }
-
+/* Final page text styling */
 #final p {
     margin: 20px 0;
     font-family: sans-serif;
     font-size: 110%    
 }
-
+/* Initials input styling */
 #final label {
     font-weight: bold;
     font-style: italic;
 }
-
+/* Highscores page styling */
 #highscores {
     display:none;
     position: absolute;
@@ -149,13 +149,13 @@ button:hover {
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
-
+/* More leaderboard items styling */
 #highscores li {
     font-family: sans-serif;
     padding: 3px 0 0 10px;
     background-color: rgba(0, 32, 101, 0.52);
 }
-
+/* Back and Clear Scores button styling */
 #highscores button {
     width: 150px;
     height: 35px;
